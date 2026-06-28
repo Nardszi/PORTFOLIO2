@@ -2206,18 +2206,18 @@
             if (bannerLineIdx < bannerFrames.length && bannerEl) {
               bannerEl.textContent += (bannerLineIdx > 0 ? '\n' : '') + bannerFrames[bannerLineIdx];
               bannerLineIdx++;
-              setTimeout(animateBanner, 80);
+              setTimeout(animateBanner, 120);
             } else {
               startSteps();
             }
           }
           
-           var delays = [100, 150, 120, 800, 200, 300, 200, 200, 250, 300, 200, 400, 500];
+           var delays = [300, 400, 350, 1200, 500, 600, 500, 500, 600, 700, 500, 800, 1000];
            
            function startSteps() {
              function runStep(step) {
                if (step >= totalSteps) {
-                 setTimeout(finish, 600);
+                 setTimeout(finish, 1500);
                  return;
                }
                
@@ -2227,27 +2227,27 @@
                  if (linkEl) {
                    var glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?~`LINKDTEC';
                    var target = 'LINK DETECTED';
-                   linkEl.classList.add('visible', 'scan');
-                   var iter = 0;
-                   function glitchStep() {
-                     var txt = '[>] ';
-                     for (var i = 0; i < target.length; i++) {
-                       txt += Math.random() > 0.35 ? glitchChars[Math.floor(Math.random() * glitchChars.length)] : target[i];
-                     }
-                     linkEl.textContent = txt;
-                     iter++;
-                     if (iter < 14) {
-                       setTimeout(glitchStep, 55);
-                     } else {
-                       linkEl.textContent = '[>] LINK DETECTED';
-                       linkEl.classList.add('glitch-active');
-                       setTimeout(function() {
-                         linkEl.classList.remove('glitch-active', 'scan');
-                         updateProgress(step + 1);
-                         setTimeout(function() { runStep(step + 1); }, delays[step] || 200);
-                       }, 500);
-                     }
-                   }
+                    linkEl.classList.add('visible', 'scan');
+                    var iter = 0;
+                    function glitchStep() {
+                      var txt = '[>] ';
+                      for (var i = 0; i < target.length; i++) {
+                        txt += Math.random() > 0.35 ? glitchChars[Math.floor(Math.random() * glitchChars.length)] : target[i];
+                      }
+                      linkEl.textContent = txt;
+                      iter++;
+                      if (iter < 18) {
+                        setTimeout(glitchStep, 80);
+                      } else {
+                        linkEl.textContent = '[>] LINK DETECTED';
+                        linkEl.classList.add('glitch-active');
+                        setTimeout(function() {
+                          linkEl.classList.remove('glitch-active', 'scan');
+                          updateProgress(step + 1);
+                          setTimeout(function() { runStep(step + 1); }, delays[step] || 200);
+                        }, 800);
+                      }
+                    }
                    glitchStep();
                    return;
                  }
@@ -2284,10 +2284,10 @@
           animateSequence();
         }
         
-        // Fallback - force hide after 5 seconds
+        // Fallback - force hide after 14 seconds
         setTimeout(function() {
           loader.classList.add('hidden');
-        }, 5000);
+        }, 14000);
       })();
 
       /* ================================================================
