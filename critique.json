@@ -1,0 +1,26 @@
+{
+  "kind": "critique-panel",
+  "score": 4,
+  "axes": {
+    "philosophy": {
+      "score": 5,
+      "notes": "Brutalist posture is consistently applied: serif display at extreme sizes, monospace body, full-strength borders (not muted), asymmetric layouts (70-30 grid), zero border-radius, no shadows or gradients."
+    },
+    "hierarchy": {
+      "score": 4,
+      "notes": "Hero section dominates with 180px display name; section labels in small uppercase provide clear wayfinding. The 70-30 grids on about and contact pages support asymmetric hierarchy. Could push asymmetry further on project pages."
+    },
+    "execution": {
+      "score": 4,
+      "notes": "Flawless typography pairing, consistent spacing rhythm, sticky nav works at all viewports. Responsive at 768px/500px/360px. Contact form has real interactive behavior. Inline h2 border-bottom override on about page is slightly inelegant."
+    },
+    "specificity": {
+      "score": 5,
+      "notes": "Every word, project description, skill name, personal detail comes directly from the user's content. No lorem ipsum, no invented metrics, no filler copy anywhere across all 5 pages."
+    },
+    "restraint": {
+      "score": 5,
+      "notes": "One decisive move — massive serif display type. No decorative flourishes, no iconography, no gradients, no rounded corners. The accent color appears only on the active nav page indicator. Honest placeholders on form and resume download instead of fake functionality."
+    }
+  }
+}

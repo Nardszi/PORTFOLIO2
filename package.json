@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "name": "9c37c3a4-2064-485b-97e9-4024f052fa30",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compress.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nardszi/PORTFOLIO2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Nardszi/PORTFOLIO2/issues"
+  },
+  "homepage": "https://github.com/Nardszi/PORTFOLIO2#readme"
+}
