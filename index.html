@@ -1099,6 +1099,42 @@
     }
     .loader-step.done { border-left-color: var(--accent); color: var(--accent); }
 
+    .loader-glitch {
+      font-family: monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 6px var(--accent), 0 0 20px oklch(60% 0.22 25 / 0.4);
+      position: relative;
+    }
+    .loader-glitch.scan::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: oklch(60% 0.22 25 / 0.3);
+      animation: glitchScan 1.5s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes glitchScan {
+      0% { top: 0; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    @keyframes glitchText {
+      0% { transform: translate(0); filter: hue-rotate(0deg); }
+      20% { transform: translate(-2px, 1px); filter: hue-rotate(60deg); }
+      40% { transform: translate(2px, -1px); filter: hue-rotate(-60deg); }
+      60% { transform: translate(-1px, 2px); filter: hue-rotate(30deg); }
+      80% { transform: translate(1px, -2px); filter: hue-rotate(-30deg); }
+      100% { transform: translate(0); filter: hue-rotate(0deg); }
+    }
+    .loader-glitch.glitch-active {
+      animation: glitchText 0.3s ease-in-out 8;
+    }
+
     .loader-progress-wrap {
       display: flex;
       align-items: center;
@@ -1493,6 +1529,7 @@
         <div class="loader-line loader-banner"></div>
         <div class="loader-line loader-system">Initializing portfolio v1.0.0...</div>
         <div class="loader-line loader-system">Checking dependencies...</div>
+        <div class="loader-line loader-glitch" id="loader-link">[>] LINK DETECTED</div>
         <div class="loader-line loader-step" data-step="1">[✓] PHP 8.2 + Laravel 10</div>
         <div class="loader-line loader-step" data-step="2">[✓] React 18 + TypeScript</div>
         <div class="loader-line loader-step" data-step="3">[✓] MySQL / MongoDB connected</div>
@@ -2175,25 +2212,57 @@
             }
           }
           
-          var delays = [100, 150, 150, 200, 300, 200, 200, 250, 300, 200, 400, 500];
-          
-          function startSteps() {
-            function runStep(step) {
-              if (step >= totalSteps) {
-                setTimeout(finish, 600);
-                return;
-              }
-              
-              showLine(step);
-              updateProgress(step + 1);
-              
-              var delay = delays[step] || 200;
-              setTimeout(function() {
-                runStep(step + 1);
-              }, delay);
-            }
-            runStep(0);
-          }
+           var delays = [100, 150, 120, 800, 200, 300, 200, 200, 250, 300, 200, 400, 500];
+           
+           function startSteps() {
+             function runStep(step) {
+               if (step >= totalSteps) {
+                 setTimeout(finish, 600);
+                 return;
+               }
+               
+               // Glitch animation for LINK DETECTED (line index 3)
+               if (step === 3) {
+                 var linkEl = document.getElementById('loader-link');
+                 if (linkEl) {
+                   var glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?~`LINKDTEC';
+                   var target = 'LINK DETECTED';
+                   linkEl.classList.add('visible', 'scan');
+                   var iter = 0;
+                   function glitchStep() {
+                     var txt = '[>] ';
+                     for (var i = 0; i < target.length; i++) {
+                       txt += Math.random() > 0.35 ? glitchChars[Math.floor(Math.random() * glitchChars.length)] : target[i];
+                     }
+                     linkEl.textContent = txt;
+                     iter++;
+                     if (iter < 14) {
+                       setTimeout(glitchStep, 55);
+                     } else {
+                       linkEl.textContent = '[>] LINK DETECTED';
+                       linkEl.classList.add('glitch-active');
+                       setTimeout(function() {
+                         linkEl.classList.remove('glitch-active', 'scan');
+                         updateProgress(step + 1);
+                         setTimeout(function() { runStep(step + 1); }, delays[step] || 200);
+                       }, 500);
+                     }
+                   }
+                   glitchStep();
+                   return;
+                 }
+               }
+               
+               showLine(step);
+               updateProgress(step + 1);
+               
+               var delay = delays[step] || 200;
+               setTimeout(function() {
+                 runStep(step + 1);
+               }, delay);
+             }
+             runStep(0);
+           }
           
           animateBanner();
         }
