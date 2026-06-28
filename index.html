@@ -406,16 +406,17 @@
       border-top: 1px solid var(--border);
     }
     .skill-cat {
-      padding: 16px 24px 16px 0;
-      font-size: 0.6rem;
+      padding: 20px 28px 20px 0;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--muted);
     }
     .skill-items {
-      padding: 14px 0;
+      padding: 18px 0;
       display: flex;
       flex-wrap: wrap;
+      gap: 2px 0;
     }
 
     /* ===== EXPERIENCE ===== */
@@ -671,42 +672,42 @@
     /* ===== SKILL PROGRESS BARS ===== */
     .skill-row {
       display: grid;
-      grid-template-columns: 160px 1fr;
+      grid-template-columns: 200px 1fr;
       border-bottom: 1px solid var(--border);
       position: relative;
     }
     /* ===== SKILL ITEMS (simple text) ===== */
     .skill-item {
-      font-size: 0.75rem;
-      padding: 2px 0;
+      font-size: 0.95rem;
+      padding: 3px 0;
     }
     .skill-item + .skill-item::before {
       content: '·';
       color: var(--muted);
-      padding-right: 4px;
+      padding: 0 6px;
     }
 
     .skill-tools {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 6px;
+      gap: 6px;
+      margin-top: 8px;
     }
     .skill-tool {
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border: 1px solid var(--border);
-      padding: 2px 8px;
+      padding: 4px 12px;
       color: var(--muted);
       transition: border-color 0.2s, color 0.2s;
     }
     .skill-tool:hover { border-color: var(--accent); color: var(--accent); }
     .skill-project-links {
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       color: var(--muted);
       letter-spacing: 0.03em;
-      margin-top: 4px;
+      margin-top: 6px;
       opacity: 0.7;
     }
     .skill-project-links strong { color: var(--accent); font-weight: 400; }
@@ -926,12 +927,11 @@
       .section { padding: 60px 20px 40px; }
       .section-title { font-size: clamp(28px, 8vw, 42px); margin-bottom: 28px; }
       .skill-row { grid-template-columns: 1fr; gap: 2px; }
-      .skill-cat { padding-bottom: 4px; border-bottom: none; }
-      .skill-items { padding-top: 0; }
-      .skill-items { font-size: 0.75rem; }
-      .skill-tools { margin-top: 4px; gap: 3px; }
-      .skill-tool { font-size: 0.5rem; padding: 2px 8px; }
-      .skill-project-links { font-size: 0.5rem; }
+      .skill-cat { padding: 12px 0 4px; font-size: 0.7rem; border-bottom: none; }
+      .skill-items { padding: 6px 0; font-size: 0.85rem; }
+      .skill-tools { margin-top: 6px; gap: 4px; }
+      .skill-tool { font-size: 0.55rem; padding: 3px 10px; }
+      .skill-project-links { font-size: 0.55rem; }
       .currently-learning { flex-direction: column; align-items: flex-start; gap: 8px; }
       .otw-banner { font-size: 0.45rem; height: 28px; gap: 6px; }
       .otw-banner .otw-dot { width: 4px; height: 4px; }
