@@ -792,15 +792,6 @@
     .project-card:nth-child(3):hover { box-shadow: 6px -6px 0 var(--accent); }
     .project-card:nth-child(4):hover { box-shadow: -6px -6px 0 var(--accent); }
 
-    /* ===== SMOOTH SECTION TRANSITIONS ===== */
-    .section-enter {
-      opacity: 0;
-      transition: opacity 0.3s ease, filter 0.3s ease;
-    }
-    .section-enter.visible {
-      opacity: 1;
-    }
-
     /* ===== HERO FADE SEQUENCE ===== */
     .hero-fade {
       opacity: 0;
@@ -1287,7 +1278,20 @@
        transition: opacity 1.8s ease;
        background: transparent;
      }
-     .section-bg.active { opacity: 1; }
+      .section-bg.active { opacity: 1; }
+
+      /* ===== NOISE / GRAIN OVERLAY ===== */
+      #grain-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        opacity: 0.035;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        will-change: transform;
+      }
+      [data-theme="dark"] #grain-overlay { opacity: 0.06; }
 
       /* ── Hero — Code rain matrix ─────────────────────────
          Canvas-based digital rain (katakana + ASCII chars)
@@ -1306,97 +1310,34 @@
         pointer-events: none;
       }
 
-     /* ── About — Identity Scanner ─────────────────────────
-        A circular scanning ring with a rotating sweep and
-        pulsing center dot — like a futuristic biometric ID
-        scanner. Three visible distinct moving parts. */
+     /* ── About — Animated Mesh Gradient ──────────────────
+        Three morphing color blobs that drift slowly —
+        modern, organic, and calm. */
      #about .section-bg {
-       overflow: hidden;
+       background:
+         radial-gradient(600px at 20% 30%, oklch(65% 0.20 25 / 0.13), transparent),
+         radial-gradient(500px at 80% 20%, oklch(70% 0.18 35 / 0.09), transparent),
+         radial-gradient(450px at 40% 70%, oklch(55% 0.15 15 / 0.10), transparent),
+         radial-gradient(550px at 70% 80%, oklch(60% 0.22 25 / 0.07), transparent);
+       background-size: 200% 200%;
+       animation: meshMorph 14s ease-in-out infinite alternate;
      }
-     #about .section-bg::before {
-       content: '';
-       position: absolute;
-       top: 50%; left: 50%;
-       width: 300px; height: 300px;
-       margin: -150px 0 0 -150px;
-       border-radius: 50%;
-       border: 1px dashed oklch(60% 0.22 25 / 0.25);
-       animation: bioRing 20s linear infinite;
-     }
-     #about .section-bg::after {
-       content: '';
-       position: absolute;
-       top: 50%; left: 50%;
-       width: 300px; height: 300px;
-       margin: -150px 0 0 -150px;
-       border-radius: 50%;
-       background: conic-gradient(from 0deg, transparent 42%, oklch(60% 0.22 25 / 0.18) 48%, oklch(60% 0.22 25 / 0.18) 52%, transparent 58%);
-       animation: bioSweep 6s linear infinite;
-     }
-     .bio-inner {
-       position: absolute;
-       top: 50%; left: 50%;
-       width: 200px; height: 200px;
-       margin: -100px 0 0 -100px;
-       border-radius: 50%;
-       border: 1px solid oklch(60% 0.22 25 / 0.15);
-       animation: bioRing 14s linear infinite reverse;
-     }
-     .bio-dot {
-       position: absolute;
-       top: 50%; left: 50%;
-       width: 14px; height: 14px;
-       margin: -7px 0 0 -7px;
-       border-radius: 50%;
-       background: var(--accent);
-       opacity: 0.5;
-       box-shadow: 0 0 24px var(--accent), 0 0 80px oklch(60% 0.22 25 / 0.4);
-       animation: bioDotPulse 3s ease-in-out infinite;
-     }
-     .bio-crosshair {
-       position: absolute;
-       top: 50%; left: 50%;
-       width: 60px; height: 1px;
-       margin-top: -0.5px; margin-left: -30px;
-       background: oklch(60% 0.22 25 / 0.2);
-     }
-     .bio-crosshair-2 {
-       position: absolute;
-       top: 50%; left: 50%;
-       width: 1px; height: 60px;
-       margin-top: -30px; margin-left: -0.5px;
-       background: oklch(60% 0.22 25 / 0.2);
-     }
-     @keyframes bioRing { to { transform: rotate(360deg); } }
-     @keyframes bioSweep { to { transform: rotate(360deg); } }
-     @keyframes bioDotPulse {
-       0%, 100% { opacity: 0.35; transform: scale(1);   box-shadow: 0 0 24px var(--accent); }
-       50%      { opacity: 0.7;  transform: scale(1.3); box-shadow: 0 0 60px var(--accent), 0 0 120px oklch(60% 0.22 25 / 0.3); }
+     @keyframes meshMorph {
+       0%   { background-position: 0% 0%; }
+       25%  { background-position: 100% 0%; }
+       50%  { background-position: 100% 100%; }
+       75%  { background-position: 0% 100%; }
+       100% { background-position: 0% 0%; }
      }
 
-     /* ── Skills — Pulse grid ──────────────────────────────
-        A visible grid with a horizontal scan line sweeping. */
-     #skills .section-bg {
-       background-image:
-         linear-gradient(90deg, oklch(60% 0.22 25 / 0.12) 1px, transparent 1px),
-         linear-gradient(0deg,  oklch(60% 0.22 25 / 0.12) 1px, transparent 1px);
-       background-size: 40px 40px;
-     }
-     #skills .section-bg::before {
-       content: '';
+     /* ── Skills — Particle Network ─────────────────────────
+        Canvas-based animated particle system with connections. */
+     #skills .section-bg { overflow: hidden; }
+     #skills-canvas {
        position: absolute;
-       left: 0; right: 0;
-       height: 2px;
-       top: 0;
-       background: oklch(60% 0.22 25 / 0.4);
-       box-shadow: 0 0 20px oklch(60% 0.22 25 / 0.6), 0 0 60px oklch(60% 0.22 25 / 0.3);
-       animation: scanLine 5s linear infinite;
-     }
-     @keyframes scanLine {
-       0%   { top: 0;    opacity: 0; }
-       10%  { top: 0;    opacity: 1; }
-       90%  { top: 100%; opacity: 1; }
-       100% { top: 100%; opacity: 0; }
+       inset: 0;
+       width: 100%; height: 100%;
+       opacity: 0.5;
      }
 
      /* ── Experience — Horizontal wave ─────────────────────
@@ -1585,6 +1526,7 @@
 
   <div id="cursor-glow"></div>
   <div id="progress-bar"></div>
+  <div id="grain-overlay"></div>
 
   <!-- Open to work banner -->
   <div class="otw-banner">
@@ -1710,12 +1652,7 @@
 
     <!-- ABOUT -->
     <section class="section" id="about">
-      <div class="section-bg">
-        <div class="bio-inner"></div>
-        <div class="bio-dot"></div>
-        <div class="bio-crosshair"></div>
-        <div class="bio-crosshair-2"></div>
-      </div>
+      <div class="section-bg"></div>
       <div class="section-inner">
         <h2 class="section-title reveal">About <span class="section-title-accent">+</span> Objective</h2>
         <div class="about-grid">
@@ -1760,7 +1697,9 @@
 
     <!-- SKILLS -->
     <section class="section" id="skills">
-      <div class="section-bg"></div>
+      <div class="section-bg">
+        <canvas id="skills-canvas"></canvas>
+      </div>
       <div class="section-inner">
         <h2 class="section-title reveal">Technical <span class="section-title-accent">Skills</span></h2>
         <div class="skills-grid reveal-stagger">
@@ -2644,6 +2583,8 @@
         var columns, drops;
         var accentCSS = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || 'oklch(60% 0.22 25)';
         var animId;
+        var mouseX = -1000, mouseY = -1000;
+        var mouseInfluence = 50; // px radius of mouse effect
 
         function resize() {
           var rect = hero.getBoundingClientRect();
@@ -2656,6 +2597,17 @@
           }
         }
 
+        // Track mouse over hero
+        hero.addEventListener('mousemove', function (e) {
+          var rect = canvas.getBoundingClientRect();
+          mouseX = e.clientX - rect.left;
+          mouseY = e.clientY - rect.top;
+        });
+        hero.addEventListener('mouseleave', function () {
+          mouseX = -1000;
+          mouseY = -1000;
+        });
+
         function draw() {
           ctx.fillStyle = 'rgba(0,0,0,0.05)';
           ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -2666,8 +2618,18 @@
             var y = drops[i] * fontSize;
             var x = i * fontSize;
 
-            // Leading character brighter
-            ctx.fillStyle = 'rgba(220, 120, 50, 0.9)';
+            // Mouse interaction — speed up drops near cursor
+            var speed = 1;
+            var dx = x - mouseX;
+            var dy = y - mouseY;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouseInfluence) {
+              speed = 1 + (1 - dist / mouseInfluence) * 2;
+              // Brighter near mouse
+              ctx.fillStyle = 'rgba(255, 180, 80, 0.95)';
+            } else {
+              ctx.fillStyle = 'rgba(220, 120, 50, 0.9)';
+            }
             ctx.fillText(text, x, y);
 
             // Trail characters fade
@@ -2676,14 +2638,16 @@
               var trailY = y - t * fontSize;
               var alpha = 0.6 - t * 0.09;
               if (alpha <= 0) break;
-              ctx.fillStyle = 'rgba(220, 120, 50, ' + alpha + ')';
+              ctx.fillStyle = dist < mouseInfluence
+                ? 'rgba(255, 180, 80, ' + alpha + ')'
+                : 'rgba(220, 120, 50, ' + alpha + ')';
               ctx.fillText(trailChar, x, trailY);
             }
 
             if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
               drops[i] = 0;
             }
-            drops[i]++;
+            drops[i] += speed;
           }
           animId = requestAnimationFrame(draw);
         }
@@ -2941,6 +2905,114 @@
           if (s.id === 'hero') { s.classList.add('section-visible'); }
           observer.observe(s);
         });
+      })();
+
+      /* ================================================================
+         SKILLS PARTICLE NETWORK
+         ================================================================ */
+      (function initParticleNetwork() {
+        var canvas = document.getElementById('skills-canvas');
+        if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var ctx = canvas.getContext('2d');
+        var skills = document.getElementById('skills');
+        if (!skills) return;
+
+        var particles = [];
+        var numParticles = 60;
+        var maxDist = 120;
+        var mousePX = -1000, mousePY = -1000;
+
+        function resize() {
+          var rect = skills.getBoundingClientRect();
+          canvas.width = rect.width;
+          canvas.height = rect.height;
+        }
+
+        function Particle() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.3;
+          this.vy = (Math.random() - 0.5) * 0.3;
+          this.r = Math.random() * 2 + 1.5;
+        }
+
+        Particle.prototype.update = function () {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+          // Subtle mouse repulsion
+          var dx = this.x - mousePX;
+          var dy = this.y - mousePY;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            var force = (1 - dist / 150) * 0.4;
+            this.x += dx / dist * force;
+            this.y += dy / dist * force;
+          }
+        };
+
+        Particle.prototype.draw = function () {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(230, 120, 60, 0.6)';
+          ctx.fill();
+        };
+
+        function initParticles() {
+          particles = [];
+          for (var i = 0; i < numParticles; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function drawParticles() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Draw connections
+          for (var i = 0; i < particles.length; i++) {
+            for (var j = i + 1; j < particles.length; j++) {
+              var dx = particles[i].x - particles[j].x;
+              var dy = particles[i].y - particles[j].y;
+              var dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < maxDist) {
+                var alpha = (1 - dist / maxDist) * 0.3;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = 'rgba(230, 120, 60, ' + alpha + ')';
+                ctx.lineWidth = 0.8;
+                ctx.stroke();
+              }
+            }
+          }
+
+          // Draw particles
+          for (var i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+          }
+
+          requestAnimationFrame(drawParticles);
+        }
+
+        skills.addEventListener('mousemove', function (e) {
+          var rect = canvas.getBoundingClientRect();
+          mousePX = e.clientX - rect.left;
+          mousePY = e.clientY - rect.top;
+        });
+        skills.addEventListener('mouseleave', function () {
+          mousePX = -1000;
+          mousePY = -1000;
+        });
+
+        resize();
+        initParticles();
+        drawParticles();
+
+        window.addEventListener('resize', function () { resize(); initParticles(); });
+        var ro = new ResizeObserver(function () { resize(); initParticles(); });
+        ro.observe(skills);
       })();
 
   </script>
