@@ -6,6 +6,13 @@
   <title>Linard T. Cordero — Junior Web Developer · Portfolio</title>
   <meta name="description" content="Portfolio of Linard T. Cordero — BSIT graduate, Junior Web Developer & Full Stack Developer. PHP, Laravel, React, MySQL. Based in Victorias City, Philippines." />
   <meta name="keywords" content="Linard Cordero, Web Developer, Full Stack Developer, PHP, Laravel, React, IT Graduate, Philippines, Portfolio" />
+  <meta property="og:title" content="Linard T. Cordero — Junior Web Developer · Portfolio" />
+  <meta property="og:description" content="BSIT graduate, Junior Web Developer & Full Stack Developer. PHP, Laravel, React, TypeScript. Based in Victorias City, Philippines." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/Nardszi/PORTFOLIO2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Linard T. Cordero — Junior Web Developer · Portfolio" />
+  <meta name="twitter:description" content="BSIT graduate, Junior Web Developer & Full Stack Developer. PHP, Laravel, React, TypeScript." />
   <!-- Three.js removed — replaced with pure CSS animated backgrounds -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -145,6 +152,12 @@
       padding: 80px 40px;
       position: relative;
       overflow: hidden;
+    }
+
+    /* Relax scroll-snap on mobile for smoother touch browsing */
+    @media (max-width: 640px) {
+      #scroll-container { scroll-snap-type: none; }
+      .section { scroll-snap-align: none; height: auto; min-height: 100vh; min-height: 100dvh; }
     }
 
      .section-inner {
@@ -662,23 +675,6 @@
       border-bottom: 1px solid var(--border);
       position: relative;
     }
-    .skill-progress-wrap {
-      position: absolute;
-      bottom: 0;
-      left: 160px;
-      right: 0;
-      height: 2px;
-      background: var(--border);
-      z-index: 2;
-    }
-    .skill-progress-fill {
-      height: 100%;
-      width: 0;
-      background: var(--accent);
-      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .skill-progress-wrap.fill .skill-progress-fill { width: var(--pct); }
-
     /* ===== SKILL ITEMS (simple text) ===== */
     .skill-item {
       font-size: 0.75rem;
@@ -914,7 +910,6 @@
       .nav-links a { padding: 6px 10px; font-size: 0.55rem; letter-spacing: 0.08em; }
       .exp-grid { grid-template-columns: 1fr; gap: 12px; }
       .contact-grid { grid-template-columns: 1fr; gap: 28px; }
-      .skill-progress-wrap { left: 0; }
       #contact-dna { opacity: 0.5; }
     }
     @media (max-width: 600px) {
@@ -931,7 +926,6 @@
       .section { padding: 60px 20px 40px; }
       .section-title { font-size: clamp(28px, 8vw, 42px); margin-bottom: 28px; }
       .skill-row { grid-template-columns: 1fr; gap: 2px; }
-      .skill-progress-wrap { left: 0; }
       .skill-cat { padding-bottom: 4px; border-bottom: none; }
       .skill-items { padding-top: 0; }
       .skill-items { font-size: 0.75rem; }
@@ -1588,7 +1582,7 @@
     <!-- HERO -->
     <section class="section" id="hero">
       <div class="section-bg">
-        <canvas id="hero-canvas"></canvas>
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
       </div>
       <div class="section-inner">
         <div class="hero-left">
@@ -1698,53 +1692,48 @@
     <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="section-bg">
-        <canvas id="skills-canvas"></canvas>
+        <canvas id="skills-canvas" aria-hidden="true"></canvas>
       </div>
       <div class="section-inner">
         <h2 class="section-title reveal">Technical <span class="section-title-accent">Skills</span></h2>
         <div class="skills-grid reveal-stagger">
-          <div class="skill-row" data-progress="90">
+          <div class="skill-row">
             <div class="skill-cat">Frontend</div>
             <div class="skill-items">
               <span class="skill-item">HTML5</span><span class="skill-item">CSS3</span><span class="skill-item">JavaScript</span><span class="skill-item">React.js</span><span class="skill-item">TypeScript</span>
               <div class="skill-tools"><span class="skill-tool">VS Code</span><span class="skill-tool">Chrome DevTools</span></div>
               <div class="skill-project-links">Used in: <strong>ScoutMaster</strong> · <strong>OFW Portal</strong> · <strong>Document Tracking</strong></div>
             </div>
-            <div class="skill-progress-wrap"><div class="skill-progress-fill" style="--pct:90%"></div></div>
           </div>
-          <div class="skill-row" data-progress="80">
+          <div class="skill-row">
             <div class="skill-cat">Backend</div>
             <div class="skill-items">
               <span class="skill-item">PHP</span><span class="skill-item">Laravel</span><span class="skill-item">REST API</span>
               <div class="skill-tools"><span class="skill-tool">Postman</span><span class="skill-tool">Composer</span></div>
               <div class="skill-project-links">Used in: <strong>Supply Inventory</strong> · <strong>ScoutMaster</strong> · <strong>OFW Portal</strong></div>
             </div>
-            <div class="skill-progress-wrap"><div class="skill-progress-fill" style="--pct:80%"></div></div>
           </div>
-          <div class="skill-row" data-progress="75">
+          <div class="skill-row">
             <div class="skill-cat">Database</div>
             <div class="skill-items">
               <span class="skill-item">MySQL</span><span class="skill-item">MongoDB</span><span class="skill-item">PostgreSQL</span><span class="skill-item">SQL</span>
               <div class="skill-tools"><span class="skill-tool">phpMyAdmin</span><span class="skill-tool">MongoDB Compass</span></div>
               <div class="skill-project-links">Used in: <strong>All projects</strong></div>
             </div>
-            <div class="skill-progress-wrap"><div class="skill-progress-fill" style="--pct:75%"></div></div>
           </div>
-          <div class="skill-row" data-progress="85">
+          <div class="skill-row">
             <div class="skill-cat">Tools &amp; Platforms</div>
             <div class="skill-items">
               <span class="skill-item">Git</span><span class="skill-item">GitHub</span><span class="skill-item">Figma</span><span class="skill-item">VS Code</span>
               <div class="skill-project-links">Applied across <strong>all projects</strong> — version control, UI mockups, daily development</div>
             </div>
-            <div class="skill-progress-wrap"><div class="skill-progress-fill" style="--pct:85%"></div></div>
           </div>
-          <div class="skill-row" data-progress="60">
+          <div class="skill-row">
             <div class="skill-cat">Other</div>
             <div class="skill-items">
               <span class="skill-item">CRUD Applications</span><span class="skill-item">AI-Assisted Development</span>
               <div class="skill-project-links">CRUD architecture in <strong>ScoutMaster</strong> · <strong>OFW Portal</strong> · <strong>Supply Inventory</strong></div>
             </div>
-            <div class="skill-progress-wrap"><div class="skill-progress-fill" style="--pct:60%"></div></div>
           </div>
         </div>
         <div class="currently-learning reveal">
@@ -1855,7 +1844,7 @@
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="section-bg">
-        <canvas id="contact-dna"></canvas>
+        <canvas id="contact-dna" aria-hidden="true"></canvas>
       </div>
       <div class="section-inner">
         <h2 class="section-title reveal">Contact <span class="section-title-accent">&amp;</span> Resume</h2>
@@ -2173,6 +2162,14 @@
       (function hideLoader() {
         var loader = document.getElementById('loader');
         if (!loader) return;
+
+        // Skip loader if already seen this session
+        if (sessionStorage.getItem('portfolioLoaded')) {
+          loader.classList.add('hidden');
+          document.querySelectorAll('#hero .reveal').forEach(function(el) { el.classList.add('visible'); });
+          return;
+        }
+        sessionStorage.setItem('portfolioLoaded', '1');
         
         var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var lines = loader.querySelectorAll('.loader-line');
@@ -2442,18 +2439,6 @@
       }
 
       /* ================================================================
-         SKILL PROGRESS BARS — fill on scroll
-         ================================================================ */
-      if ('IntersectionObserver' in window && !prefersReduced) {
-        var progObs = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) { e.target.classList.add('fill'); progObs.unobserve(e.target); }
-          });
-        }, { threshold: 0.2 });
-        document.querySelectorAll('.skill-progress-wrap').forEach(function (el) { progObs.observe(el); });
-      }
-
-      /* ================================================================
          EXPERIENCE TIMELINE — dot reveal on scroll
          ================================================================ */
       if ('IntersectionObserver' in window && !prefersReduced) {
@@ -2659,14 +2644,20 @@
         }
         reduced.addListener(handleReduced);
 
+        // Pause canvas when hero scrolled out of view
+        var heroVisible = true;
+        var heroObs = new IntersectionObserver(function (entries) {
+          heroVisible = entries[0].isIntersecting;
+          if (!heroVisible && animId) { cancelAnimationFrame(animId); animId = null; }
+          if (heroVisible && !animId && !reduced.matches) { draw(); }
+        }, { threshold: 0 });
+        heroObs.observe(hero);
+
         resize();
-        // Only start if reduced-motion is not active
         if (!reduced.matches) draw();
 
         window.addEventListener('resize', resize);
-        // Use the scroll container's resize or just the window resize
 
-        // Expose resize for scroll-container changes
         var ro = new ResizeObserver(function () { resize(); });
         ro.observe(hero);
       })();
@@ -2777,6 +2768,18 @@
         resize2();
         if (!reduced2.matches) draw2();
         window.addEventListener('resize', resize2);
+
+        // Pause DNA when contact section scrolled out of view
+        var contactSection = document.getElementById('contact');
+        var contactVisible = true;
+        if (contactSection) {
+          var contactObs = new IntersectionObserver(function (entries) {
+            contactVisible = entries[0].isIntersecting;
+            if (!contactVisible && animId2) { cancelAnimationFrame(animId2); animId2 = null; }
+            if (contactVisible && !animId2 && !reduced2.matches) { draw2(); }
+          }, { threshold: 0 });
+          contactObs.observe(contactSection);
+        }
 
         // Observe parent for size changes (contact section)
         if (window.ResizeObserver) {
@@ -2921,6 +2924,7 @@
         var numParticles = 60;
         var maxDist = 120;
         var mousePX = -1000, mousePY = -1000;
+        var particlesAnimId;
 
         function resize() {
           var rect = skills.getBoundingClientRect();
@@ -2993,7 +2997,7 @@
             particles[i].draw();
           }
 
-          requestAnimationFrame(drawParticles);
+          particlesAnimId = requestAnimationFrame(drawParticles);
         }
 
         skills.addEventListener('mousemove', function (e) {
@@ -3005,6 +3009,15 @@
           mousePX = -1000;
           mousePY = -1000;
         });
+
+        // Pause particle network when skills scrolled out of view
+        var particlesVisible = true;
+        var skillsObs = new IntersectionObserver(function (entries) {
+          particlesVisible = entries[0].isIntersecting;
+          if (!particlesVisible && particlesAnimId) { cancelAnimationFrame(particlesAnimId); particlesAnimId = null; }
+          if (particlesVisible && !particlesAnimId) { drawParticles(); }
+        }, { threshold: 0 });
+        skillsObs.observe(skills);
 
         resize();
         initParticles();
