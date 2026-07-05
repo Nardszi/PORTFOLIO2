@@ -142,6 +142,7 @@
       scroll-snap-type: y proximity;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
+      perspective: 1200px;
     }
 
     /* ===== SECTIONS ===== */
@@ -156,6 +157,9 @@
       padding: 80px 40px;
       position: relative;
       overflow: hidden;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      will-change: transform;
     }
     .section::before {
       content: '';
@@ -173,8 +177,8 @@
 
     /* Relax scroll-snap on mobile for smoother touch browsing */
     @media (max-width: 640px) {
-      #scroll-container { scroll-snap-type: none; }
-      .section { scroll-snap-align: none; height: auto; min-height: 100vh; min-height: 100dvh; }
+      #scroll-container { scroll-snap-type: none; perspective: none; }
+      .section { scroll-snap-align: none; height: auto; min-height: 100vh; min-height: 100dvh; transform-style: flat; }
     }
 
      .section-inner {
@@ -1448,6 +1452,8 @@
         #projects .section-bg { opacity: 1 !important; }
         #contact .section-bg { opacity: 1 !important; background: transparent !important; }
         #contact-dna { display: none !important; }
+        #scroll-container { perspective: none !important; }
+        .section { transform-style: flat !important; transform: none !important; }
       }
 
     /* ===== CURSOR GLOW ===== */
@@ -2349,6 +2355,46 @@
         setTimeout(function() {
           loader.classList.add('hidden');
         }, 14000);
+      })();
+
+      /* ================================================================
+         3D SCROLL PERSPECTIVE — sections tilt in 3D on scroll
+         ================================================================ */
+      (function init3dScroll() {
+        if (prefersReduced) return;
+        if (window.innerWidth <= 640) return;
+        var sections = document.querySelectorAll('.section');
+        var container = document.getElementById('scroll-container');
+        if (!container || sections.length === 0) return;
+
+        var maxTilt = 6;
+        var ticking = false;
+
+        function update() {
+          var containerRect = container.getBoundingClientRect();
+          var viewH = container.clientHeight;
+          var viewCenter = viewH / 2;
+
+          sections.forEach(function (sec) {
+            var rect = sec.getBoundingClientRect();
+            var secCenter = rect.top + rect.height / 2 - containerRect.top;
+            var offset = (secCenter - viewCenter) / viewH;
+            var clamp = Math.max(-1, Math.min(1, offset));
+            var angle = clamp * maxTilt;
+            sec.style.transform = 'rotateX(' + (-angle) + 'deg) translateZ(' + (Math.abs(angle) * 0.3) + 'px)';
+          });
+          ticking = false;
+        }
+
+        container.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+          }
+        }, { passive: true });
+
+        update();
+        window.addEventListener('resize', function () { update(); });
       })();
 
       /* ================================================================
