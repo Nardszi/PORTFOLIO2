@@ -2262,10 +2262,8 @@
           }
           
           // Banner is now a Lottie animation — skip straight to boot sequence
-          startSteps();
-          
            var delays = [300, 400, 350, 1200, 500, 600, 500, 500, 600, 700, 500, 800, 1000];
-           
+
            function startSteps() {
              function runStep(step) {
                if (step >= totalSteps) {
@@ -2315,6 +2313,8 @@
              }
              runStep(0);
            }
+
+          startSteps();
         }
         
         function finish() {
