@@ -1082,12 +1082,12 @@
     .loader-line.visible { opacity: 1; transform: translateY(0); }
 
     .loader-banner {
-      font-family: monospace;
-      font-size: 0.55rem;
-      line-height: 1.1;
-      color: var(--accent);
-      white-space: pre;
+      text-align: center;
       margin-bottom: 12px;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .loader-system {
@@ -1553,7 +1553,6 @@
 
   <!-- Developer-themed loader -->
   <div id="loader" aria-label="Loading">
-    <dotlottie-wc src="https://lottie.host/76ea3941-479c-407e-880c-b441e27539d2/1sbCKNZ7P2.lottie" style="width: 160px; height: 160px; display: block; margin: 0 auto 12px;" autoplay loop></dotlottie-wc>
     <div class="loader-terminal">
       <div class="loader-terminal-header">
         <span class="loader-dot red"></span>
@@ -1562,7 +1561,9 @@
         <span class="loader-terminal-title">nardszi@portfolio:~$</span>
       </div>
       <div class="loader-terminal-body" id="loader-output">
-        <div class="loader-line loader-banner"></div>
+        <div class="loader-line loader-banner">
+          <dotlottie-wc src="https://lottie.host/76ea3941-479c-407e-880c-b441e27539d2/1sbCKNZ7P2.lottie" style="width: 200px; height: 200px; display: block; margin: 0 auto;" autoplay loop></dotlottie-wc>
+        </div>
         <div class="loader-line loader-system">Initializing portfolio v1.0.0...</div>
         <div class="loader-line loader-system">Checking dependencies...</div>
         <div class="loader-line loader-glitch" id="loader-link">[>] LINK DETECTED</div>
@@ -2252,34 +2253,16 @@
         
         function animateSequence() {
           var bannerEl = loader.querySelector('.loader-banner');
-          var bannerFrames = [
-            '  _      _           _     _   _____          _          _',
-            ' | |    (_)         | |   | | |  __ \\        | |        | |',
-            ' | |     _ _ __   __| | __| | | |__) |___  __| | ___  __| |',
-            ' | |    | | \'_ \\ / _` |/ _` | |  _  // _ \\/ _` |/ _ \\/ _` |',
-            ' | |____| | | | | (_| | (_| | | | \\ \\  __/ (_| |  __/ (_| |',
-            ' |______|_|_| |_|\\__,_|\\__,_| |_|  \\_\\___|\\__,_|\\___|\\__,_|'
-          ];
           
           if (prefersReduced) {
-            if (bannerEl) bannerEl.textContent = bannerFrames.join('\n');
             lines.forEach(function(line) { line.classList.add('visible'); });
             updateProgress(totalSteps);
             setTimeout(finish, 300);
             return;
           }
           
-          // Animate banner lines
-          var bannerLineIdx = 0;
-          function animateBanner() {
-            if (bannerLineIdx < bannerFrames.length && bannerEl) {
-              bannerEl.textContent += (bannerLineIdx > 0 ? '\n' : '') + bannerFrames[bannerLineIdx];
-              bannerLineIdx++;
-              setTimeout(animateBanner, 120);
-            } else {
-              startSteps();
-            }
-          }
+          // Banner is now a Lottie animation — skip straight to boot sequence
+          startSteps();
           
            var delays = [300, 400, 350, 1200, 500, 600, 500, 500, 600, 700, 500, 800, 1000];
            
@@ -2332,8 +2315,6 @@
              }
              runStep(0);
            }
-          
-          animateBanner();
         }
         
         function finish() {
