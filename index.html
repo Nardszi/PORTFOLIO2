@@ -410,48 +410,27 @@
     .edu-name { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 34px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 4px; }
     .edu-school { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; }
     .edu-duties { padding-left: 0; }
-    .edu-duties li { position: relative; padding-left: 20px; margin-bottom: 6px; font-size: 0.8rem; }
+    .edu-duties li { position: relative; padding-left: 20px; margin-bottom: 4px; font-size: 0.75rem; }
     .edu-duties li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
 
     .cert-item {
-      padding: 10px 0;
+      padding: 8px 0;
       border-top: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
     }
     .cert-item:first-child { border-top: none; padding-top: 0; }
     .cert-title {
-      font-family: var(--font-display);
-      font-size: clamp(16px, 1.8vw, 22px);
-      line-height: 1.15;
+      font-size: 0.8rem;
+      line-height: 1.3;
       letter-spacing: -0.01em;
-      margin-bottom: 2px;
     }
-    .cert-issuer {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-    }
-    .cert-date {
+    .cert-meta {
       font-size: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-top: 2px;
-    }
-    .cert-type {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--muted);
-    }
-    .cert-details {
-      font-size: 0.75rem;
-      line-height: 1.5;
-      color: var(--fg);
-      margin-top: 2px;
     }
 
     .about-divider { border: none; height: 1px; background: var(--border); margin: 28px 0; }
@@ -1761,30 +1740,20 @@
               <div>
                 <p class="info-label">Certifications</p>
                 <div class="cert-item">
-                  <span class="cert-title">Google AI Professional Certificate (Specialization)</span>
-                  <br>
-                  <span class="cert-issuer">Google, via Coursera</span>
-                  <span class="cert-date">July 2026</span>
+                  <span class="cert-title">Google AI Professional Certificate</span>
+                  <span class="cert-meta">Coursera · July 2026</span>
                 </div>
                 <div class="cert-item">
                   <span class="cert-title">Google AI Courses</span>
-                  <br>
-                  <span class="cert-details">App Building, Data Analysis, Content Creation, Writing & Communicating, Research & Insights, Brainstorming & Planning, and AI Fundamentals</span>
-                  <br>
-                  <span class="cert-issuer">via Coursera</span>
-                  <span class="cert-date">July 2026</span>
+                  <span class="cert-meta">App Building · Data Analysis · AI Fundamentals · Coursera · July 2026</span>
                 </div>
                 <div class="cert-item">
                   <span class="cert-title">AI Fluency: Framework & Foundations</span>
-                  <br>
-                  <span class="cert-issuer">Anthropic</span>
-                  <span class="cert-type">Certificate of Completion</span>
+                  <span class="cert-meta">Anthropic · Certificate of Completion</span>
                 </div>
                 <div class="cert-item">
                   <span class="cert-title">AI Fluency: AI Capabilities & Limitations</span>
-                  <br>
-                  <span class="cert-issuer">Anthropic</span>
-                  <span class="cert-type">Certificate of Completion</span>
+                  <span class="cert-meta">Anthropic · Certificate of Completion</span>
                 </div>
               </div>
             </div>
@@ -1792,7 +1761,7 @@
         </div>
 
         <!-- Soft Skills -->
-        <div class="reveal" style="margin-top: 48px;">
+        <div class="reveal" style="margin-top: 28px;">
           <p class="info-label">Soft Skills</p>
           <div class="soft-skills">
             <span class="soft-skill">Team Collaboration</span>
