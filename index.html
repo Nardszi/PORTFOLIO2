@@ -188,8 +188,6 @@
        margin: 0 auto;
        position: relative;
        z-index: 1;
-       display: flex;
-       flex-direction: column;
      }
 
     /* ===== SCROLL REVEAL ===== */
@@ -451,6 +449,9 @@
     .soft-skill:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ===== SKILLS ===== */
+    .skills-wrap {
+      width: 100%;
+    }
     .skills-grid {
       display: grid;
       gap: 0;
@@ -1784,6 +1785,7 @@
       </div>
       <div class="section-inner">
         <h2 class="section-title reveal">Technical <span class="section-title-accent">Skills</span></h2>
+        <div class="skills-wrap">
         <div class="skills-grid reveal-stagger">
           <div class="skill-row">
             <div class="skill-cat">Frontend</div>
@@ -1839,6 +1841,7 @@
               <span class="skill-project-links">AI Fluency framework — Delegation, Description, Discernment, Diligence</div>
             </div>
           </div>
+        </div>
         </div>
         <div class="currently-learning reveal">
           <span class="currently-learning-label">Currently exploring</span>
