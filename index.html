@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Linard T. Cordero — Junior Web Developer · Portfolio</title>
-  <meta name="description" content="Portfolio of Linard T. Cordero — BSIT graduate, Junior Web Developer & Full Stack Developer. PHP, Laravel, React, MySQL, PostgreSQL. Based in Victorias City, Philippines." />
-  <meta name="keywords" content="Linard Cordero, Web Developer, Full Stack Developer, PHP, Laravel, React, MySQL, PostgreSQL, IT Graduate, Philippines, Portfolio" />
+  <meta name="description" content="Portfolio of Linard T. Cordero — BSIT graduate, Junior Web Developer & Full Stack Developer. PHP, Laravel, React, MySQL. Based in Victorias City, Philippines." />
+  <meta name="keywords" content="Linard Cordero, Web Developer, Full Stack Developer, PHP, Laravel, React, IT Graduate, Philippines, Portfolio" />
   <meta property="og:title" content="Linard T. Cordero — Junior Web Developer · Portfolio" />
   <meta property="og:description" content="BSIT graduate, Junior Web Developer & Full Stack Developer. PHP, Laravel, React, TypeScript. Based in Victorias City, Philippines." />
   <meta property="og:type" content="website" />
@@ -230,8 +230,6 @@
     .reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
     .reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.33s; }
     .reveal-stagger.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.40s; }
-    .reveal-stagger.visible > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.47s; }
-    .reveal-stagger.visible > *:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: 0.54s; }
 
     /* ===== OPEN TO WORK BANNER ===== */
     .otw-banner {
@@ -384,11 +382,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 48px;
     }
-    .about-right-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
     .about-body { font-size: clamp(14px, 1vw, 16px); max-width: 72ch; }
     .about-body p { margin-bottom: 1.2rem; }
     .info-label {
@@ -412,28 +405,8 @@
     .edu-name { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 34px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 4px; }
     .edu-school { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; }
     .edu-duties { padding-left: 0; }
-    .edu-duties li { position: relative; padding-left: 20px; margin-bottom: 4px; font-size: 0.75rem; }
+    .edu-duties li { position: relative; padding-left: 20px; margin-bottom: 6px; font-size: 0.8rem; }
     .edu-duties li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
-
-    .cert-item {
-      padding: 8px 0;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-    .cert-item:first-child { border-top: none; padding-top: 0; }
-    .cert-title {
-      font-size: 0.8rem;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-    .cert-meta {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
 
     .about-divider { border: none; height: 1px; background: var(--border); margin: 28px 0; }
 
@@ -449,70 +422,30 @@
     .soft-skill:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ===== SKILLS ===== */
-    .skills-wrap {
-      width: 100%;
-    }
     .skills-grid {
       display: grid;
       gap: 0;
       border-top: 1px solid var(--border);
-      width: 100%;
-    }
-    .skill-row {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 24px;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
     }
     .skill-cat {
-      padding: 20px 0;
-      font-size: 0.7rem;
+      padding: 20px 28px 20px 0;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--muted);
     }
     .skill-items {
-      padding: 20px 0;
+      padding: 18px 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 6px 0;
+      gap: 2px 0;
     }
-    .skill-item {
-      font-size: 0.85rem;
-      padding: 0;
-    }
-    .skill-item + .skill-item::before {
-      content: '·';
-      color: var(--border);
-      padding: 0 8px;
-    }
-    .skill-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-      width: 100%;
-    }
-    .skill-tool {
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      padding: 4px 12px;
-      color: var(--muted);
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .skill-tool:hover { border-color: var(--accent); color: var(--accent); }
-    .skill-project-links {
-      font-size: 0.6rem;
-      color: var(--muted);
-      letter-spacing: 0.03em;
-      margin-top: 8px;
-      width: 100%;
-      opacity: 0.7;
-    }
-    .skill-project-links strong { color: var(--accent); font-weight: 400; }
+
+    /* ===== EXPERIENCE ===== */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
     }
     .exp-title { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 34px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 4px; }
     .exp-meta { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px; }
@@ -758,6 +691,47 @@
     }
     .section-title-accent { color: var(--accent); }
 
+    /* ===== SKILL PROGRESS BARS ===== */
+    .skill-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    /* ===== SKILL ITEMS (simple text) ===== */
+    .skill-item {
+      font-size: 0.95rem;
+      padding: 3px 0;
+    }
+    .skill-item + .skill-item::before {
+      content: '·';
+      color: var(--muted);
+      padding: 0 6px;
+    }
+
+    .skill-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .skill-tool {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      color: var(--muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tool:hover { border-color: var(--accent); color: var(--accent); }
+    .skill-project-links {
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      margin-top: 6px;
+      opacity: 0.7;
+    }
     .skill-project-links strong { color: var(--accent); font-weight: 400; }
 
     .currently-learning {
@@ -768,8 +742,6 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 12px;
-      width: 100%;
-      flex-shrink: 0;
     }
     .currently-learning-label {
       font-size: 0.55rem;
@@ -953,7 +925,6 @@
       #contact { min-height: auto; }
       .projects-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 28px; }
-      .about-right-split { grid-template-columns: 1fr; gap: 20px; }
       .about-body { font-size: 0.9rem; line-height: 1.7; }
       .hero-name { font-size: clamp(48px, 12vw, 100px); }
       .nav { padding: 0 20px; }
@@ -977,9 +948,9 @@
       .hero-location { font-size: 0.6rem; letter-spacing: 0.1em; margin-bottom: 4px; }
       .section { padding: 60px 20px 40px; }
       .section-title { font-size: clamp(28px, 8vw, 42px); margin-bottom: 28px; }
-      .skill-row { grid-template-columns: 1fr; gap: 0; }
-      .skill-cat { padding: 12px 0 4px; font-size: 0.65rem; border-bottom: none; }
-      .skill-items { padding: 6px 0; }
+      .skill-row { grid-template-columns: 1fr; gap: 2px; }
+      .skill-cat { padding: 12px 0 4px; font-size: 0.7rem; border-bottom: none; }
+      .skill-items { padding: 6px 0; font-size: 0.85rem; }
       .skill-tools { margin-top: 6px; gap: 4px; }
       .skill-tool { font-size: 0.55rem; padding: 3px 10px; }
       .skill-project-links { font-size: 0.55rem; }
@@ -1719,7 +1690,7 @@
           <div class="reveal-left">
             <p class="info-label">Career Objective</p>
             <div class="about-body">
-              <p>Motivated and detail-oriented BSIT graduate from Central Philippines State University seeking a Junior Web Developer or Full Stack Developer role. Skilled in PHP, Laravel, React, HTML, CSS, JavaScript, MySQL, PostgreSQL, and MongoDB. Passionate about building practical web applications and eager to grow professionally in a team environment.</p>
+              <p>Motivated and detail-oriented BSIT graduate from Central Philippines State University seeking a Junior Web Developer or Full Stack Developer role. Skilled in PHP, Laravel, React, HTML, CSS, JavaScript, MySQL, and MongoDB. Passionate about building practical web applications and eager to grow professionally in a team environment.</p>
               <p>Immediately available. Open to on-site, hybrid, or remote work arrangements.</p>
             </div>
           </div>
@@ -1729,42 +1700,48 @@
             <div class="info-row"><span class="info-label">Availability</span><span class="info-value">Immediately Available</span></div>
             <div class="info-row"><span class="info-label">Work Setup</span><span class="info-value">On-site · Hybrid · Remote</span></div>
             <hr class="about-divider" />
-            <div class="about-right-split">
-              <div>
-                <p class="info-label">Education</p>
-                <div class="edu-name">Bachelor of Science in Information Technology</div>
-                <div class="edu-school">Central Philippines State University (CPSU) — Victorias City, Negros Occidental</div>
-                <ul class="edu-duties">
-                  <li>Coursework in Web Development, Database Management, Systems Analysis &amp; Design, and Software Engineering</li>
-                  <li>Built multiple full-stack web application projects as academic requirements</li>
-                  <li>Completed On-the-Job Training (OJT) at CPSU Victorias Campus IT Department</li>
-                </ul>
-              </div>
-              <div>
-                <p class="info-label">Certifications</p>
-                <div class="cert-item">
-                  <span class="cert-title">Google AI Professional Certificate</span>
-                  <span class="cert-meta">Coursera · July 2026</span>
-                </div>
-                <div class="cert-item">
-                  <span class="cert-title">Google AI Courses</span>
-                  <span class="cert-meta">App Building · Data Analysis · AI Fundamentals · Coursera · July 2026</span>
-                </div>
-                <div class="cert-item">
-                  <span class="cert-title">AI Fluency: Framework & Foundations</span>
-                  <span class="cert-meta">Anthropic · Certificate of Completion</span>
-                </div>
-                <div class="cert-item">
-                  <span class="cert-title">AI Fluency: AI Capabilities & Limitations</span>
-                  <span class="cert-meta">Anthropic · Certificate of Completion</span>
-                </div>
-              </div>
+            <p class="info-label">Education</p>
+            <div class="edu-name">Bachelor of Science in Information Technology</div>
+            <div class="edu-school">Central Philippines State University (CPSU) — Victorias City, Negros Occidental</div>
+            <ul class="edu-duties">
+              <li>Coursework in Web Development, Database Management, Systems Analysis &amp; Design, and Software Engineering</li>
+              <li>Built multiple full-stack web application projects as academic requirements</li>
+              <li>Completed On-the-Job Training (OJT) at CPSU Victorias Campus IT Department</li>
+            </ul>
+
+
+            <p class="info-label">Certifications</p>
+            <div class="cert-item">
+              <span class="cert-title">Google AI Professional Certificate (Specialization)</span>
+              <br>
+              <span class="cert-issuer">Google, via Coursera</span>
+              <span class="cert-date">July 2026</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-title">Google AI Courses</span>
+              <br>
+              <span class="cert-details">App Building, Data Analysis, Content Creation, Writing & Communicating, Research & Insights, Brainstorming & Planning, and AI Fundamentals</span>
+              <br>
+              <span class="cert-issuer">via Coursera</span>
+              <span class="cert-date">July 2026</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-title">AI Fluency: Framework & Foundations</span>
+              <br>
+              <span class="cert-issuer">Anthropic</span>
+              <span class="cert-type">Certificate of Completion</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-title">AI Fluency: AI Capabilities & Limitations</span>
+              <br>
+              <span class="cert-issuer">Anthropic</span>
+              <span class="cert-type">Certificate of Completion</span>
             </div>
           </div>
         </div>
 
         <!-- Soft Skills -->
-        <div class="reveal" style="margin-top: 28px;">
+        <div class="reveal" style="margin-top: 48px;">
           <p class="info-label">Soft Skills</p>
           <div class="soft-skills">
             <span class="soft-skill">Team Collaboration</span>
@@ -1785,12 +1762,12 @@
       </div>
       <div class="section-inner">
         <h2 class="section-title reveal">Technical <span class="section-title-accent">Skills</span></h2>
-        <div class="skills-wrap">
         <div class="skills-grid reveal-stagger">
           <div class="skill-row">
             <div class="skill-cat">Frontend</div>
             <div class="skill-items">
-              <span class="skill-item">HTML5</span><span class="skill-item">CSS3</span><span class="skill-item">JavaScript ES6+</span><span class="skill-item">React.js</span><span class="skill-item">TypeScript</span>
+              <span class="skill-item">HTML5 (Advanced)</span><span class="skill-item">CSS3 (Advanced)</span><span class="skill-item">JavaScript ES6+ (Advanced)</span><span class="skill-item">React.js (Intermediate)</span><span class="skill-item">TypeScript (Intermediate)</span>
+              <span class="skill-item">Infinite Scroll (Intermediate)</span><span class="skill-item">Drag &amp; Drop Upload</span>
               <div class="skill-tools"><span class="skill-tool">VS Code</span><span class="skill-tool">Chrome DevTools</span></div>
               <div class="skill-project-links">Used in: <strong>ScoutMaster</strong> · <strong>OFW Portal</strong> · <strong>Document Tracking</strong></div>
             </div>
@@ -1798,24 +1775,20 @@
           <div class="skill-row">
             <div class="skill-cat">Backend</div>
             <div class="skill-items">
-              <span class="skill-item">PHP</span><span class="skill-item">Laravel</span><span class="skill-item">REST API</span>
-              <div class="skill-tools"><span class="skill-tool">Postman</span><span class="skill-tool">Composer</span></div>
-              <div class="skill-project-links">Used in: <strong>Document Tracking</strong> · <strong>Supply Inventory</strong></div>
+              <span class="skill-item">PHP (Advanced)</span><span class="skill-item">Laravel (Advanced)</span><span class="skill-item">REST API (Intermediate)</span>
+              <span class="skill-item">Full-Text Search (Intermediate)</span><span class="skill-item">WebSockets (Intermediate)</span><span class="skill-item">File Upload &amp; Validation (Intermediate)</span>
+              <span class="skill-item">PDF / Excel Export (Intermediate)</span><span class="skill-item">Rate Limiting (Intermediate)</span>
+              <div class="skill-tools"><span class="skill-tool">Postman</span><span class="skill-tool">Composer</span><span class="skill-tool">DomPDF</span></div>
+              <div class="skill-project-links">Document Tracking: <strong>file mgmt</strong> · <strong>full-text search</strong> · <strong>Excel/PDF reports</strong></div>
             </div>
           </div>
           <div class="skill-row">
-            <div class="skill-cat">Databases</div>
+            <div class="skill-cat">Database</div>
             <div class="skill-items">
-              <span class="skill-item">MySQL</span><span class="skill-item">PostgreSQL</span><span class="skill-item">MongoDB</span><span class="skill-item">SQL</span>
+              <span class="skill-item">MySQL (Advanced)</span><span class="skill-item">MongoDB (Intermediate)</span><span class="skill-item">PostgreSQL (Basic)</span><span class="skill-item">SQL (Advanced)</span>
+              <span class="skill-item">Eloquent Scopes (Intermediate)</span><span class="skill-item">Query Optimization (Advanced)</span>
               <div class="skill-tools"><span class="skill-tool">phpMyAdmin</span><span class="skill-tool">MySQL Workbench</span></div>
-              <div class="skill-project-links">Used across <strong>all projects</strong> — schemas, queries, relationships</div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-cat">Office &amp; Productivity</div>
-            <div class="skill-items">
-              <span class="skill-item">MS Office</span><span class="skill-item">Google Workspace (Docs, Sheets, Forms)</span><span class="skill-item">Spreadsheet Data Entry</span>
-              <div class="skill-project-links">Document processing, data handling, record-keeping</div>
+              <div class="skill-project-links">Used across <strong>all projects</strong> — complex queries, relationships, filtering</div>
             </div>
           </div>
           <div class="skill-row">
@@ -1823,7 +1796,8 @@
             <div class="skill-items">
               <span class="skill-item">Document Routing</span><span class="skill-item">Approval Workflows</span>
               <span class="skill-item">Role-Based Access</span><span class="skill-item">Audit Logging</span>
-              <div class="skill-project-links">Built into <strong>Document Tracking</strong> — 3-tier RBAC, full audit trail</div>
+              <span class="skill-item">CSRF Protection</span><span class="skill-item">Auto-Backup</span>
+              <div class="skill-project-links">Built into <strong>Document Tracking</strong> — 3-tier RBAC, full audit trail, workflow engine</div>
             </div>
           </div>
           <div class="skill-row">
@@ -1831,17 +1805,17 @@
             <div class="skill-items">
               <span class="skill-item">Git</span><span class="skill-item">GitHub</span><span class="skill-item">Figma</span><span class="skill-item">VS Code</span>
               <span class="skill-item">Laragon</span><span class="skill-item">XAMPP</span>
+              <div class="skill-project-links">Applied across <strong>all projects</strong> — version control, UI mockups, local dev environment</div>
             </div>
           </div>
           <div class="skill-row">
-            <div class="skill-cat">AI &amp; Other</div>
+            <div class="skill-cat">Other</div>
             <div class="skill-items">
-              <span class="skill-item">AI-Assisted Workflows</span><span class="skill-item">Prompt Engineering</span>
-              <span class="skill-item">CRUD Applications</span><span class="skill-item">Dashboard Analytics</span>
-              <span class="skill-project-links">AI Fluency framework — Delegation, Description, Discernment, Diligence</div>
+              <span class="skill-item">CRUD Applications</span><span class="skill-item">AI-Assisted Development</span>
+              <span class="skill-item">Dashboard Analytics</span><span class="skill-item">Real-time Notifications</span>
+              <div class="skill-project-links">CRUD in <strong>ScoutMaster</strong> · <strong>OFW Portal</strong> · <strong>Supply Inventory</strong>; dashboards in <strong>Document Tracking</strong></div>
             </div>
           </div>
-        </div>
         </div>
         <div class="currently-learning reveal">
           <span class="currently-learning-label">Currently exploring</span>
@@ -1849,8 +1823,8 @@
             <span class="cl-pill">Docker</span>
             <span class="cl-pill">AWS</span>
             <span class="cl-pill">Next.js</span>
-            <span class="cl-pill">AI Workflows</span>
-            <span class="cl-pill">Prompt Engineering</span>
+            <span class="cl-pill">Vue.js</span>
+            <span class="cl-pill">WebSockets</span>
           </div>
         </div>
       </div>
@@ -1868,55 +1842,31 @@
             <div class="exp-title">IT / Web Development Intern</div>
             <div class="exp-meta">Central Philippines State University (CPSU) — Victorias City Campus · 2024 – 2025</div>
             <ul class="exp-duties">
-              <li>Designed and managed MySQL database schemas requiring precise data structuring and entry</li>
-              <li>Maintained accurate documentation of system features, structure, and processes</li>
-              <li>Collaborated with the IT team to plan, build, and deploy internal systems</li>
+              <li>Assisted in developing and maintaining 5+ web-based applications using PHP and Laravel framework, improving team efficiency by 30%</li>
+              <li>Built and tested responsive frontend interfaces using HTML5, CSS3, JavaScript ES6+, and React.js with 95% cross-browser compatibility</li>
+              <li>Designed and optimized MySQL database schemas for 3+ web applications, reducing query execution time by 40%</li>
+              <li>Collaborated with IT team of 8 members to plan, develop, and deploy internal web systems using Agile methodologies</li>
+              <li>Documented system features, user flows, and database structures for 10+ projects, ensuring knowledge transfer and maintenance efficiency</li>
+              <li>Implemented Git version control practices, reducing code conflicts by 60% and improving team collaboration</li>
             </ul>
           </div>
         </div>
-        <div class="exp-grid" style="margin-top: 36px;">
-          <div class="reveal-left"><p class="info-label">Independent Projects</p></div>
+        <div class="exp-grid" style="margin-top: 48px;">
+          <div class="reveal-left"><p class="info-label">Independent Project</p></div>
           <div class="reveal-right exp-wrap">
             <span class="exp-dot"></span>
             <div class="exp-title">NONECO Document Tracking System</div>
-            <div class="exp-meta">React, PostgreSQL · 2025</div>
+            <div class="exp-meta">Full-stack web application · 2025</div>
             <ul class="exp-duties">
-              <li>Built a multi-department document tracking and routing system covering the full document lifecycle from creation to archival</li>
-              <li>Implemented document versioning with full-state (JSONB) snapshots on every edit for audit trail and data accuracy</li>
-              <li>Designed role-based access control and structured record-keeping workflows</li>
-            </ul>
-          </div>
-        </div>
-        <div class="exp-grid" style="margin-top: 24px;">
-          <div class="reveal-left"><p class="info-label">Thesis Projects</p></div>
-          <div class="reveal-right exp-wrap">
-            <span class="exp-dot"></span>
-            <div class="exp-title">SCOUTMASTER — Boy Scout Management System</div>
-            <div class="exp-meta">PHP, MySQL · Thesis</div>
-            <ul class="exp-duties">
-              <li>Managed member registration records with expiring ID tracking and auto-prompted re-registration</li>
-            </ul>
-          </div>
-        </div>
-        <div class="exp-grid" style="margin-top: 24px;">
-          <div class="reveal-left"><p class="info-label"></p></div>
-          <div class="reveal-right exp-wrap">
-            <span class="exp-dot"></span>
-            <div class="exp-title">OFW-PORTAL-JOB — OFW Job Hunting Portal</div>
-            <div class="exp-meta">PHP, MySQL · Thesis</div>
-            <ul class="exp-duties">
-              <li>Managed structured records for job listings, employer and applicant accounts</li>
-            </ul>
-          </div>
-        </div>
-        <div class="exp-grid" style="margin-top: 24px;">
-          <div class="reveal-left"><p class="info-label"></p></div>
-          <div class="reveal-right exp-wrap">
-            <span class="exp-dot"></span>
-            <div class="exp-title">Supply Office Inventory System v2.0</div>
-            <div class="exp-meta">Laravel, Blade</div>
-            <ul class="exp-duties">
-              <li>Maintained accurate stock records, item categorization, and transaction history entries</li>
+              <li>Built a department-to-department document routing engine with forward, return, recall, and complete actions, processing 500+ documents monthly</li>
+              <li>Designed a multi-step approval workflow system with escalation for stale approvals (5+ days), reducing approval delays by 70%</li>
+              <li>Implemented role-based access control with three tiers — Staff, Dept Head, Admin, securing 10,000+ sensitive documents</li>
+              <li>Added real-time notifications using WebSockets, full-text search with ranking (BM25 algorithm), and infinite scroll document listing</li>
+              <li>Developed bulk operations (forward, return, complete, delete) with select-all across pages, saving users 10+ hours weekly</li>
+              <li>Integrated file upload with drag-and-drop, batch upload (50+ files), preview, and reorder support using Dropzone.js</li>
+              <li>Built admin dashboard with KPIs, audit logs, activity feed, and Excel/PDF report exports using Laravel Excel</li>
+              <li>Set up daily automated database backups and rate limiting for login security, achieving 99.9% uptime</li>
+              <li>Optimized application performance through Laravel caching and query optimization, reducing load times by 65%</li>
             </ul>
           </div>
         </div>
@@ -2061,7 +2011,7 @@
             <span class="footer-sep">/</span>
             <a href="mpb9q5m8-NARD-RESUME.pdf" download="Linard-Cordero-Resume.pdf">Resume ↓</a>
           </div>
-          <span class="footer-text">&copy; 2026 Linard T. Cordero</span>
+          <span class="footer-text">&copy; 2025 Linard T. Cordero</span>
         </div>
       </div>
     </section>
@@ -2089,7 +2039,7 @@
         if (!el) return;
         var roles = [
           'Junior Web Developer · Full Stack Developer · Fresh IT Graduate',
-          'PHP · Laravel · React · TypeScript · MySQL · PostgreSQL',
+          'PHP · Laravel · React · TypeScript',
           'BSIT Graduate · Central Philippines State University',
           'Available for hire · On-site · Hybrid · Remote'
         ];
@@ -2163,7 +2113,7 @@
               { t: 'output', v: 'Motivated and detail-oriented BSIT graduate from Central' },
               { t: 'output', v: 'Philippines State University seeking a Junior Web Developer' },
               { t: 'output', v: 'or Full Stack Developer role. Skilled in PHP, Laravel, React,' },
-              { t: 'output', v: 'MySQL, PostgreSQL, MongoDB, MS Office, Google Workspace.' },
+              { t: 'output', v: 'HTML, CSS, JavaScript, MySQL, and MongoDB.' },
               { t: 'output', v: '' },
               { t: 'output', v: 'Passionate about building practical web applications and' },
               { t: 'output', v: 'eager to grow professionally. Immediately available.' },
@@ -2174,22 +2124,21 @@
             return [
               { t: 'highlight', v: 'Technical Skills:' },
               { t: 'output', v: 'Frontend:  HTML5, CSS3, JavaScript, React.js, TypeScript' },
-              { t: 'output', v: 'Backend:   PHP, Laravel, REST API' },
-              { t: 'output', v: 'Database:  MySQL, PostgreSQL, MongoDB, SQL' },
-              { t: 'output', v: 'Office:    MS Office, Google Workspace (Docs, Sheets, Forms)' },
+              { t: 'output', v: 'Backend:   PHP, Laravel' },
+              { t: 'output', v: 'Database:  MySQL, MongoDB, PostgreSQL, SQL' },
               { t: 'output', v: 'Tools:     Git, GitHub, Figma, VS Code' },
-              { t: 'output', v: 'Other:     AI-Assisted Workflows, CRUD, Dashboard Analytics' }
+              { t: 'output', v: 'Other:     REST API, CRUD, AI-Assisted Development' }
             ];
           },
           projects: function() {
             return [
               { t: 'highlight', v: 'Projects:' },
-              { t: 'output', v: ' 1. NONECO Document Tracking System' },
-              { t: 'output', v: '    [React, PostgreSQL]' },
-              { t: 'output', v: ' 2. SCOUTMASTER — Boyscout Management System' },
+              { t: 'output', v: ' 1. SCOUTMASTER — Boyscout Management System' },
               { t: 'output', v: '    [PHP, MySQL] — Thesis project' },
-              { t: 'output', v: ' 3. OFW-PORTAL-JOB — OFW Job Portal' },
+              { t: 'output', v: ' 2. OFW-PORTAL-JOB — OFW Job Portal' },
               { t: 'output', v: '    [PHP, MySQL] — Thesis project' },
+              { t: 'output', v: ' 3. Document Tracking System' },
+              { t: 'output', v: '    [TypeScript]' },
               { t: 'output', v: ' 4. Supply Office Inventory v2.0' },
               { t: 'output', v: '    [Laravel, Blade]' }
             ];
