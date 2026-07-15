@@ -410,6 +410,43 @@
 
     .about-divider { border: none; height: 1px; background: var(--border); margin: 28px 0; }
 
+    .cert-item {
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .cert-item:first-of-type { border-top: none; padding-top: 0; }
+    .cert-title {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 1.6vw, 22px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .cert-details {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .cert-issuer {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .cert-date {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .cert-type {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
     .soft-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
     .soft-skill {
       font-size: 0.6rem;
@@ -1713,27 +1750,22 @@
             <p class="info-label">Certifications</p>
             <div class="cert-item">
               <span class="cert-title">Google AI Professional Certificate (Specialization)</span>
-              <br>
               <span class="cert-issuer">Google, via Coursera</span>
               <span class="cert-date">July 2026</span>
             </div>
             <div class="cert-item">
               <span class="cert-title">Google AI Courses</span>
-              <br>
               <span class="cert-details">App Building, Data Analysis, Content Creation, Writing & Communicating, Research & Insights, Brainstorming & Planning, and AI Fundamentals</span>
-              <br>
               <span class="cert-issuer">via Coursera</span>
               <span class="cert-date">July 2026</span>
             </div>
             <div class="cert-item">
               <span class="cert-title">AI Fluency: Framework & Foundations</span>
-              <br>
               <span class="cert-issuer">Anthropic</span>
               <span class="cert-type">Certificate of Completion</span>
             </div>
             <div class="cert-item">
               <span class="cert-title">AI Fluency: AI Capabilities & Limitations</span>
-              <br>
               <span class="cert-issuer">Anthropic</span>
               <span class="cert-type">Certificate of Completion</span>
             </div>
