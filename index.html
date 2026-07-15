@@ -382,6 +382,11 @@
       grid-template-columns: 1fr 1fr;
       gap: 48px;
     }
+    .about-right-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
     .about-body { font-size: clamp(14px, 1vw, 16px); max-width: 72ch; }
     .about-body p { margin-bottom: 1.2rem; }
     .info-label {
@@ -966,6 +971,7 @@
       #contact { min-height: auto; }
       .projects-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-right-split { grid-template-columns: 1fr; gap: 20px; }
       .about-body { font-size: 0.9rem; line-height: 1.7; }
       .hero-name { font-size: clamp(48px, 12vw, 100px); }
       .nav { padding: 0 20px; }
@@ -1741,42 +1747,46 @@
             <div class="info-row"><span class="info-label">Availability</span><span class="info-value">Immediately Available</span></div>
             <div class="info-row"><span class="info-label">Work Setup</span><span class="info-value">On-site · Hybrid · Remote</span></div>
             <hr class="about-divider" />
-            <p class="info-label">Education</p>
-            <div class="edu-name">Bachelor of Science in Information Technology</div>
-            <div class="edu-school">Central Philippines State University (CPSU) — Victorias City, Negros Occidental</div>
-            <ul class="edu-duties">
-              <li>Coursework in Web Development, Database Management, Systems Analysis &amp; Design, and Software Engineering</li>
-              <li>Built multiple full-stack web application projects as academic requirements</li>
-              <li>Completed On-the-Job Training (OJT) at CPSU Victorias Campus IT Department</li>
-            </ul>
-
-
-            <p class="info-label">Certifications</p>
-            <div class="cert-item">
-              <span class="cert-title">Google AI Professional Certificate (Specialization)</span>
-              <br>
-              <span class="cert-issuer">Google, via Coursera</span>
-              <span class="cert-date">July 2026</span>
-            </div>
-            <div class="cert-item">
-              <span class="cert-title">Google AI Courses</span>
-              <br>
-              <span class="cert-details">App Building, Data Analysis, Content Creation, Writing & Communicating, Research & Insights, Brainstorming & Planning, and AI Fundamentals</span>
-              <br>
-              <span class="cert-issuer">via Coursera</span>
-              <span class="cert-date">July 2026</span>
-            </div>
-            <div class="cert-item">
-              <span class="cert-title">AI Fluency: Framework & Foundations</span>
-              <br>
-              <span class="cert-issuer">Anthropic</span>
-              <span class="cert-type">Certificate of Completion</span>
-            </div>
-            <div class="cert-item">
-              <span class="cert-title">AI Fluency: AI Capabilities & Limitations</span>
-              <br>
-              <span class="cert-issuer">Anthropic</span>
-              <span class="cert-type">Certificate of Completion</span>
+            <div class="about-right-split">
+              <div>
+                <p class="info-label">Education</p>
+                <div class="edu-name">Bachelor of Science in Information Technology</div>
+                <div class="edu-school">Central Philippines State University (CPSU) — Victorias City, Negros Occidental</div>
+                <ul class="edu-duties">
+                  <li>Coursework in Web Development, Database Management, Systems Analysis &amp; Design, and Software Engineering</li>
+                  <li>Built multiple full-stack web application projects as academic requirements</li>
+                  <li>Completed On-the-Job Training (OJT) at CPSU Victorias Campus IT Department</li>
+                </ul>
+              </div>
+              <div>
+                <p class="info-label">Certifications</p>
+                <div class="cert-item">
+                  <span class="cert-title">Google AI Professional Certificate (Specialization)</span>
+                  <br>
+                  <span class="cert-issuer">Google, via Coursera</span>
+                  <span class="cert-date">July 2026</span>
+                </div>
+                <div class="cert-item">
+                  <span class="cert-title">Google AI Courses</span>
+                  <br>
+                  <span class="cert-details">App Building, Data Analysis, Content Creation, Writing & Communicating, Research & Insights, Brainstorming & Planning, and AI Fundamentals</span>
+                  <br>
+                  <span class="cert-issuer">via Coursera</span>
+                  <span class="cert-date">July 2026</span>
+                </div>
+                <div class="cert-item">
+                  <span class="cert-title">AI Fluency: Framework & Foundations</span>
+                  <br>
+                  <span class="cert-issuer">Anthropic</span>
+                  <span class="cert-type">Certificate of Completion</span>
+                </div>
+                <div class="cert-item">
+                  <span class="cert-title">AI Fluency: AI Capabilities & Limitations</span>
+                  <br>
+                  <span class="cert-issuer">Anthropic</span>
+                  <span class="cert-type">Certificate of Completion</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
