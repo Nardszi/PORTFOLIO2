@@ -409,6 +409,15 @@
     .edu-duties li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
 
     .about-divider { border: none; height: 1px; background: var(--border); margin: 28px 0; }
+    .about-bottom-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 32px;
+    }
+    .about-bottom-col {
+      min-width: 0;
+    }
 
     .cert-item {
       padding: 12px 0;
@@ -962,6 +971,7 @@
       #contact { min-height: auto; }
       .projects-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-bottom-split { grid-template-columns: 1fr; gap: 28px; }
       .about-body { font-size: 0.9rem; line-height: 1.7; }
       .hero-name { font-size: clamp(48px, 12vw, 100px); }
       .nav { padding: 0 20px; }
@@ -1736,7 +1746,11 @@
             <div class="info-row"><span class="info-label">Languages</span><span class="info-value">Filipino (Native), English (Conversational)</span></div>
             <div class="info-row"><span class="info-label">Availability</span><span class="info-value">Immediately Available</span></div>
             <div class="info-row"><span class="info-label">Work Setup</span><span class="info-value">On-site · Hybrid · Remote</span></div>
-            <hr class="about-divider" />
+          </div>
+        </div>
+
+        <div class="about-bottom-split reveal">
+          <div class="about-bottom-col">
             <p class="info-label">Education</p>
             <div class="edu-name">Bachelor of Science in Information Technology</div>
             <div class="edu-school">Central Philippines State University (CPSU) — Victorias City, Negros Occidental</div>
@@ -1745,8 +1759,8 @@
               <li>Built multiple full-stack web application projects as academic requirements</li>
               <li>Completed On-the-Job Training (OJT) at CPSU Victorias Campus IT Department</li>
             </ul>
-
-
+          </div>
+          <div class="about-bottom-col">
             <p class="info-label">Certifications</p>
             <div class="cert-item">
               <span class="cert-title">Google AI Professional Certificate (Specialization)</span>
