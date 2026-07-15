@@ -116,3 +116,6 @@ export function initHeroThree() {
       canvas.style.display = 'none';
     });
 }
+
+// Initialize if canvas exists
+initHeroThree();
