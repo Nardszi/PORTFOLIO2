@@ -27,7 +27,18 @@ export function initHeroThree() {
   // Import three.js from CDN (dynamic import)
   // We'll load three.js via a promise to avoid blocking initial render
   import('https://cdnjs.cloudflare.com/ajax/libs/threejs/r128/three.module.js')
-    .then(({ default: THREE, OrbitControls }) => {
+    .then(function(module) {
+        const THREE = module.default;
+        // Import postprocessing
+        return import('https://cdnjs.cloudflare.com/ajax/libs/threejs/r128/examples/jsm/postprocessing/EffectComposer.js').then(function(EffectComposerModule) {
+            return import('https://cdnjs.cloudflare.com/ajax/libs/threejs/r128/examples/jsm/postprocessing/RenderPass.js').then(function(RenderPassModule) {
+                return import('https://cdnjs.cloudflare.com/ajax/libs/threejs/r128/examples/jsm/postprocessing/UnrealBloomPass.js').then(function(UnrealBloomPassModule) {
+                    return { THREE, EffectComposer: EffectComposerModule.default, RenderPass: RenderPassModule.default, UnrealBloomPass: UnrealBloomPassModule.default };
+                });
+            });
+        });
+    })
+    .then(({ THREE, EffectComposer, RenderPass, UnrealBloomPass }) => {
       // Scene setup
       const scene = new THREE.Scene();
       scene.background = new THREE.Color(0x000000); // transparent background via alpha
@@ -40,21 +51,42 @@ export function initHeroThree() {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // limit DPI for performance
 
       // Lights
-      const hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 1.2);
+      const hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 1.5);
       scene.add(hemi);
-      const dir = new THREE.DirectionalLight(0xffffff, 1);
+      const dir = new THREE.DirectionalLight(0xffffff, 2);
       dir.position.set(5, 10, 7);
       scene.add(dir);
+      // Add a point light for extra glow
+      const pointLight = new THREE.PointLight(0xff6a00, 2, 10);
+      pointLight.position.set(0, 2, 2);
+      scene.add(pointLight);
 
-      // Object: low‑poly torus knot (accent color)
-      const geometry = new THREE.TorusKnotGeometry(0.6, 0.2, 64, 16);
+      // Object: glowing torus knot (accent color)
+      const geometry = new THREE.TorusKnotGeometry(0.8, 0.3, 100, 20);
       const material = new THREE.MeshStandardMaterial({
         color: 0xff6a00, // matches --accent
-        metalness: 0.2,
-        roughness: 0.4,
+        metalness: 0.5,
+        roughness: 0.2,
+        emissive: 0xff6a00,
+        emissiveIntensity: 1.5,
       });
       const torus = new THREE.Mesh(geometry, material);
+      torus.scale.set(1.2, 1.2, 1.2);
       scene.add(torus);
+
+      // Setup postprocessing
+      const composer = new EffectComposer(renderer);
+      composer.setSize(canvas.clientWidth, canvas.clientHeight);
+      composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      const renderPass = new RenderPass(scene, camera);
+      composer.addPass(renderPass);
+      const bloomPass = new UnrealBloomPass(
+        new THREE.Vector2(canvas.clientWidth, canvas.clientHeight),
+        0.8, // strength
+        0.4, // radius
+        0.5  // threshold
+      );
+      composer.addPass(bloomPass);
 
       // Animation loop
       const clock = new THREE.Clock();
@@ -63,7 +95,7 @@ export function initHeroThree() {
         const elapsed = clock.getElapsedTime();
         torus.rotation.y = elapsed * 0.2;
         torus.rotation.x = elapsed * 0.1;
-        renderer.render(scene, camera);
+        composer.render();
       }
       animate();
 
